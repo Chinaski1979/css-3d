@@ -1,0 +1,29 @@
+
+body {
+  -webkit-perspective: 800px; /*perspective gets applied to direct child 
+  elements only. Perspective alone does not make any noticeable difference, it only determines how direct children will be rendered*/
+  /*-webkit-perspective-origin: 100% 100%; changes the origin of the perspective*/
+}
+
+.wrap {
+  transition: -webkit-transform 1s ease-in;
+  -webkit-transform-style: preserve-3d; /*this is to make this divs be affected by the 3d effect that only affects direct children*/
+}
+
+.wrap div {
+	position: absolute;
+  -webkit-backface-visibility: hidden; /*this is for the backside to display a different image*/
+}
+
+.side-a {
+	z-index: 100;
+}
+
+.side-b {
+  -webkit-transform: rotateY(180deg);/*a side has to be positive and the :hover negative
+  and full turn on one image the other has to have half degrees*/
+}
+
+.wrap:hover {
+  -webkit-transform: rotateY(-1turn); /*translate-z with a positive value*/
+}
